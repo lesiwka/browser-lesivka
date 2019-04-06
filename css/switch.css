@@ -1,0 +1,36 @@
+.switch {
+    pointer-events: none;
+}
+
+.switch input {
+    display: none;
+}
+
+.switch-body {
+    height: 1rem;
+    width: 2rem;
+    background: #bdb9a6;
+    border-radius: 1rem;
+    border: .2rem solid #bdb9a6;
+    transition: .1s;
+}
+
+.switch input:checked + .switch-body {
+    background: #28a745;
+    border-color: #28a745;
+    transition: .1s;
+}
+
+.switch-body div {
+    position: absolute;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 1rem;
+    background: #fff;
+    transition: .1s;
+}
+
+input:checked + .switch-body div {
+    transform: translate3d(100%, 0, 0);
+    transition: .1s;
+}

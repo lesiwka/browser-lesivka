@@ -1,0 +1,66 @@
+html {
+    user-select: none;
+}
+
+body {
+    margin: 0;
+    width: 12rem;
+}
+
+.header {
+    background-color: #007bff;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.title {
+    text-align: center;
+}
+
+.title label {
+    display: inline-block;
+    font-size: large;
+    padding: 1rem;
+    width: 10rem;
+}
+
+.pad {
+    display: inline-block;
+    width: 1rem;
+}
+
+.enable-toggle {
+    right: 1rem;
+    position: absolute;
+    top: 1.1rem;
+}
+
+.reload-button {
+    background: url("../img/refresh.svg") no-repeat center / contain;
+    border: 0;
+    height: 3rem;
+    width: 6rem;
+}
+
+.reload-button:focus {
+    outline: 0;
+    transform: rotate(180deg);
+    transition: all .5s;
+}
+
+.reload-button:active:focus {
+    transform: none;
+    transition: none 0s;
+}
+
+.center {
+    text-align: center;
+}
+
+.version {
+    text-align: right;
+    font-size: small;
+    color: #6c757d;
+    margin-right: .5rem;
+    margin-bottom: .5rem;
+}
