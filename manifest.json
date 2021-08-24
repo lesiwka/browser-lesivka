@@ -1,7 +1,7 @@
 {
-  "short_name": "Leśivka",
-  "name": "Leśivka – українська латинка",
-  "version": "0.2",
+  "short_name": "Lesivka",
+  "name": "Lesivka – українська латинка",
+  "version": "0.5",
   "description": "Переглянути сайти лесівкою",
   "manifest_version": 2,
   "permissions": [
