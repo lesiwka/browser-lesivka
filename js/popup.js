@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function () {
     reloadButton.addEventListener('click', function () {
         chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
             chrome.tabs.reload(tabs[0].id);
+            let start = new Date().getTime();
+            while ((new Date().getTime() - start) < 500) {}
+            window.close();
         });
     });
 });
