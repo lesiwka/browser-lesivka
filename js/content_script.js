@@ -7,23 +7,32 @@ function walk(rootNode)
         null
     );
 
-    let node;
+    let node = walker.nextNode();
+    let nextNode;
 
     // Modify each text node's value
-    while (node = walker.nextNode()) {
+    while (nextNode = walker.nextNode()) {
+        handleNode(node, nextNode);
+        node = nextNode;
+    }
+
+    handleNode(node);
+}
+
+function handleNode(node, nextNode) {
+    if (node) {
         if (node.nodeType === Node.ELEMENT_NODE) {
             handleAttrs(node);
         } else if (node.nodeType === Node.TEXT_NODE) {
-            handleText(node);
+            handleText(node, nextNode);
         }
     }
 }
 
-
 function handleAttrs(node) {
     if (node.placeholder) {
         try {
-            node.placeholder = lesivka.encode(node.placeholder);
+            node.placeholder = lesiwka.encode(node.placeholder);
         } catch (err) {
             console.error(err, node.placeholder);
         }
@@ -39,17 +48,25 @@ function handleAttrs(node) {
 
     if (node.value) {
         try {
-            node.value = lesivka.encode(node.value);
+            node.value = lesiwka.encode(node.value);
         } catch (err) {
             console.error(err, node.value);
         }
     }
 }
 
-
-function handleText(node) {
+function handleText(node, nextNode) {
+    let nodeValue = node.nodeValue;
     try {
-        node.nodeValue = lesivka.encode(node.nodeValue);
+        let encodedValue = lesiwka.encode(nodeValue);
+        let encodedLength = encodedValue.length;
+
+        if (nextNode) {
+            nodeValue += " " + nextNode.textContent.slice(0, 5);
+            encodedValue = lesiwka.encode(nodeValue).slice(0, encodedLength);
+        }
+
+        node.nodeValue = encodedValue;
     } catch (err) {
         if (err.message !== "Maximum call stack size exceeded") {
             console.error(err, node.nodeValue);
@@ -85,7 +102,7 @@ function walkAndObserve(doc) {
 
     // Do the initial text replacements in the document body and title
     walk(doc.body);
-    doc.title = lesivka.encode(doc.title);
+    doc.title = lesiwka.encode(doc.title);
 
     // Observe the body so that we replace text in any added/modified nodes
     bodyObserver = new MutationObserver(observerCallback);

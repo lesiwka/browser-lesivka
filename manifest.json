@@ -1,7 +1,7 @@
 {
-  "short_name": "Lesivka",
-  "name": "Lesivka – українська латинка",
-  "version": "0.5.2",
+  "short_name": "Lesiwka",
+  "name": "Lesiwka – українська латинка",
+  "version": "0.10.0",
   "description": "Переглянути сайти лесівкою",
   "manifest_version": 2,
   "permissions": [
@@ -14,7 +14,7 @@
       ],
       "all_frames": true,
       "js": [
-        "js/lesivka.encode.js",
+        "js/lesiwka.encode.js",
         "js/content_script.js"
       ],
       "run_at": "document_idle"
