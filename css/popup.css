@@ -39,7 +39,7 @@ body {
     background: url("../img/refresh.svg") no-repeat center / contain;
     border: 0;
     height: 3rem;
-    width: 6rem;
+    width: 100%;
 }
 
 .reload-button:focus {
@@ -53,8 +53,8 @@ body {
     transition: none 0s;
 }
 
-.center {
-    text-align: center;
+.content {
+    width: 100%;
 }
 
 .version {
