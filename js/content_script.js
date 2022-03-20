@@ -4,8 +4,7 @@ function walk(rootNode)
     const walker = document.createTreeWalker(
         rootNode,
         NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT,
-        null,
-        false
+        null
     );
 
     let node;
