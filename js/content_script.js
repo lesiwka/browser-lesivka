@@ -29,6 +29,14 @@ function handleAttrs(node) {
         }
     }
 
+    if (node.title && typeof node.title == "string") {
+        try {
+            node.title = lesiwka.encode(node.title);
+        } catch (err) {
+            console.error(err, node, node.title);
+        }
+    }
+
     if (node.value) {
         try {
             node.value = lesivka.encode(node.value);
