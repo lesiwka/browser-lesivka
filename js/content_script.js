@@ -30,11 +30,11 @@ function handleNode(node, nextNode) {
 }
 
 function handleAttrs(node) {
-    if (node.placeholder) {
+    if (node.placeholder && typeof node.placeholder == "string") {
         try {
             node.placeholder = lesiwka.encode(node.placeholder);
         } catch (err) {
-            console.error(err, node.placeholder);
+            console.error(err, node);
         }
     }
 
@@ -42,15 +42,15 @@ function handleAttrs(node) {
         try {
             node.title = lesiwka.encode(node.title);
         } catch (err) {
-            console.error(err, node, node.title);
+            console.error(err, node);
         }
     }
 
-    if (node.value) {
+    if (node.value && typeof node.value == "string") {
         try {
             node.value = lesiwka.encode(node.value);
         } catch (err) {
-            console.error(err, node.value);
+            console.error(err, node);
         }
     }
 }
