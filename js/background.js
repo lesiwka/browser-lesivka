@@ -1,3 +1,5 @@
-chrome.runtime.onInstalled.addListener(function() {
-    chrome.storage.sync.set({enabled: true});
+chrome.runtime.onInstalled.addListener(function(details) {
+    if (details.reason === "install") {
+        chrome.storage.sync.set({enabled: true});
+    }
 });
