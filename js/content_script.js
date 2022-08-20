@@ -61,7 +61,7 @@ function handleText(node, nextNode) {
         let encodedValue = lesiwka.encode(nodeValue);
         let encodedLength = encodedValue.length;
 
-        if (nextNode) {
+        if (nextNode && ["A", "STRONG", "EM", "B", "I", "Q", "MARK", "SPAN"].indexOf(nextNode.tagName) > -1) {
             nodeValue += " " + nextNode.textContent.slice(0, 5);
             encodedValue = lesiwka.encode(nodeValue).slice(0, encodedLength);
         }
